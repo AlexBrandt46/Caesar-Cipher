@@ -8,12 +8,12 @@ namespace Caesar_Cipher {
     class Program {
 
         private static char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        static int shift; //the shift amount for the message
 
         static void Main(string[] args) {
 
             string message; //the message entered by the user
-            int shift; //the shift amount for the message
-
+            
             //the user entered message
             Console.WriteLine("Please enter the message that you'd like to encrypt:");
             message = Console.ReadLine();
@@ -60,6 +60,9 @@ namespace Caesar_Cipher {
             } 
 
             return encryption;
+        }
+        public static StringBuilder Decrypt(int shift, string message) {
+
         }
     }
 }
