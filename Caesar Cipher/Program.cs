@@ -63,6 +63,12 @@ namespace Caesar_Cipher {
 
             for (int i = 0; i < messageArray.Length; i++) {
 
+                //detects if there are spaces in the message and adds them to the encrypted message, but skips the alphabet array
+                if (messageArray[i].Equals(' ')) {
+                    encryption.Append(messageArray[i]);
+                    continue;
+                }
+
                 for (int a = 0; a < alphabet.Length; a++) {
 
                     if (messageArray[i].Equals(alphabet[a])) {
@@ -88,6 +94,12 @@ namespace Caesar_Cipher {
 
             for (int i = 0; i < messageArray.Length; i++) {
 
+                //detects if there are spaces in the message and adds them to the decrypted message, but skips the alphabet array
+                if (messageArray[i].Equals(' ')) {
+                    decryption.Append(messageArray[i]);
+                    continue;
+                }
+
                 for (int a = 0; a < alphabet.Length; a++) {
 
                     if (messageArray[i].Equals(alphabet[a])) {
@@ -99,6 +111,7 @@ namespace Caesar_Cipher {
                         decryption.Append(shiftedLetter);
                         Console.WriteLine(decryption);
                     }
+
                 }
             }
 
@@ -107,6 +120,4 @@ namespace Caesar_Cipher {
     }
 }
 
-/*TODO:
- *  #separate spaces from the alphabet array
- */
+
