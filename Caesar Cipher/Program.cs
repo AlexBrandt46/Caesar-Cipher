@@ -80,7 +80,9 @@ namespace Caesar_Cipher {
                         encryption.Append(shiftedLetter);
 
                     }
+
                 }
+
             }
 
             return encryption;
@@ -91,12 +93,14 @@ namespace Caesar_Cipher {
             StringBuilder decryption = new StringBuilder();
             char[] messageArray = message.ToCharArray();
             char shiftedLetter = ' ';
+            int letter = 0; //the new letter after the decryption
 
             for (int i = 0; i < messageArray.Length; i++) {
 
                 //detects if there are spaces in the message and adds them to the decrypted message, but skips the alphabet array
                 if (messageArray[i].Equals(' ')) {
                     decryption.Append(messageArray[i]);
+                    Console.WriteLine(decryption);
                     continue;
                 }
 
@@ -107,12 +111,21 @@ namespace Caesar_Cipher {
                         //takes the letter in the alphabet array which is equal to the current letter in the message array
                         //it subtracts the shift value to the index value of the alphabet array's current index value and then performs 
                         //mod 26 on it to ensure that it's always in the alphabet and there's no array out of bounds error
-                        shiftedLetter = alphabet[((a - shift) % 26)];
+                        letter = (a - shift) % 26;
+
+                        //since % isn't a true modulus a negative number % 26 creates a negative number
+                        //adding 26 to the negative number has the same result as a true modulus involving a negative number
+                        if (letter < 0) {
+                            letter += 26;
+                        }
+
+                        shiftedLetter = alphabet[letter];
                         decryption.Append(shiftedLetter);
-                        Console.WriteLine(decryption);
+
                     }
 
                 }
+
             }
 
             return decryption;
